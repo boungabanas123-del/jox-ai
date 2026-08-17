@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JOX AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">✦</div>
+            <span>JOX</span>
+        </div>
+
+        <button class="new-chat" onclick="newChat()">
+            <span>＋</span>
+            New Chat
+        </button>
+
+        <nav class="navigation">
+
+            <button class="nav-item active" onclick="showPage('chat', this)">
+                <span>◉</span>
+                AI Chat
+            </button>
+
+            <button class="nav-item" onclick="showPage('calculator', this)">
+                <span>▣</span>
+                Calculator
+            </button>
+
+        </nav>
+
+        <div class="history">
+
+            <div class="history-title">
+                RECENT
+            </div>
+
+            <button class="history-item">
+                AI Assistant
+            </button>
+
+            <button class="history-item">
+                Calculator
+            </button>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item">
+                <span>⚙</span>
+                Settings
+            </button>
+
+            <div class="profile">
+                <div class="avatar">A</div>
+
+                <div>
+                    <strong>User</strong>
+                    <small>Free Plan</small>
+                </div>
+
+                <span class="dots">•••</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="mobile-logo">
+                ✦ JOX
+            </div>
+
+            <div class="page-title" id="pageTitle">
+                AI Assistant
+            </div>
+
+            <div class="top-actions">
+
+                <button class="icon-button">
+                    ⌘
+                </button>
+
+                <button class="icon-button">
+                    ?
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- CHAT PAGE -->
+
+        <section id="chatPage" class="page active-page">
+
+            <div class="chat-wrapper">
+
+                <div id="chatMessages" class="chat-messages">
+
+                    <div class="welcome">
+
+                        <div class="welcome-icon">
+                            ✦
+                        </div>
+
+                        <h1>
+                            What can I help you with?
+                        </h1>
+
+                        <p>
+                            Ask JOX anything. Your intelligent AI assistant.
+                        </p>
+
+                        <div class="suggestions">
+
+                            <button onclick="useSuggestion('Explain artificial intelligence simply')">
+                                <span>✧</span>
+                                Explain AI simply
+                            </button>
+
+                            <button onclick="useSuggestion('Help me write a professional email')">
+                                <span>✎</span>
+                                Write something
+                            </button>
+
+                            <button onclick="useSuggestion('Give me ideas for a website')">
+                                <span>⌘</span>
+                                Get ideas
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- INPUT -->
+
+                <div class="input-container">
+
+                    <div class="input-box">
+
+                        <button class="input-icon">
+                            ＋
+                        </button>
+
+                        <input
+                            id="userInput"
+                            type="text"
+                            placeholder="Message NOVA..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            class="send-button"
+                            onclick="sendMessage()"
+                        >
+                            ↑
+                        </button>
+
+                    </div>
+
+                    <div class="input-footer">
+                        JOX can make mistakes. Check important information.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALCULATOR PAGE -->
+
+        <section id="calculatorPage" class="page">
+
+            <div class="calculator-page">
+
+                <div class="calculator-card">
+
+                    <div class="calculator-display">
+                        <div id="calcHistory"></div>
+                        <input
+                            id="calcDisplay"
+                            value="0"
+                            readonly
+                        >
+                    </div>
+
+
+                    <div class="calculator-buttons">
+
+                        <button class="calc-function" onclick="clearCalc()">AC</button>
+                        <button class="calc-function" onclick="deleteCalc()">⌫</button>
+                        <button class="calc-function" onclick="calcInput('%')">%</button>
+                        <button class="calc-operator" onclick="calcInput('/')">÷</button>
+
+                        <button onclick="calcInput('7')">7</button>
+                        <button onclick="calcInput('8')">8</button>
+                        <button onclick="calcInput('9')">9</button>
+                        <button class="calc-operator" onclick="calcInput('*')">×</button>
+
+                        <button onclick="calcInput('4')">4</button>
+                        <button onclick="calcInput('5')">5</button>
+                        <button onclick="calcInput('6')">6</button>
+                        <button class="calc-operator" onclick="calcInput('-')">−</button>
+
+                        <button onclick="calcInput('1')">1</button>
+                        <button onclick="calcInput('2')">2</button>
+                        <button onclick="calcInput('3')">3</button>
+                        <button class="calc-operator" onclick="calcInput('+')">+</button>
+
+                        <button class="zero" onclick="calcInput('0')">0</button>
+                        <button onclick="calcInput('.')">.</button>
+                        <button class="calc-equal" onclick="calculate()">=</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
